@@ -1,0 +1,12 @@
+*.class
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+hs_err_pid*
+lib
+build
+.idea
+.gradle
+*.iml
+!gradle/wrapper/*.jar

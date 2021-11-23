@@ -1,0 +1,47 @@
+name: Spectator
+version: 2.0
+api-version: 1.17
+author: kosakriszi
+main: com.kosakorner.spectator.Spectator
+depend: [ProtocolLib]
+
+commands:
+  spectate:
+    aliases: [spec]
+    description: Access to spectate.
+    permission: spectator.use.spectate
+  spectatecycle:
+    aliases: [speccycle]
+    description: Cycle through all online players.
+    permission: spectator.use.cycle
+    usage: '§cUsage: /<command> <start|stop> ...'
+  spectatereload:
+    aliases: [specreload]
+    description: Reload plugin configs.
+    permission: spectator.reload
+  spectateconfig:
+    aliases: [specconfig]
+    description: Set config values.
+    permission: spectator.config
+    usage: '§cUsage: /<command> <MirrorInventory|HideFromTab|CycleOnPlayerDeath|RememberSurvivalPosition|OnlySpecPlayers|EnableBypasses|DismountMode> ...'
+
+permissions:
+  spectator.*:
+    description: Grant all Spectator permissions.
+    children:
+      spectator.use.*:
+        description: Access to all Spectator commands.
+        children:
+          spectator.use.spectate: true
+          spectator.use.teleport: true
+          spectator.use.inventory: true
+          spectator.use.cycle: true
+      spectator.bypass.*:
+        description: Bypass certain Spectator features.
+        children:
+          spectator.bypass.tablist: false
+          spectator.bypass.viewable: false
+      spectator.reload:
+        description: Access to reload all Spectator configs.
+      spectator.config:
+        description: Access to change spectator config values.
